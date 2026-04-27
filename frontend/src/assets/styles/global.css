@@ -1,0 +1,153 @@
+/* ============================================================
+   TALENT CONNECT — Styles globaux
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue:        #1A6FD4;
+  --blue-light:  #E6F1FB;
+  --blue-dark:   #0C447C;
+  --blue-mid:    #378ADD;
+  --white:       #ffffff;
+  --gray-bg:     #F5F6F8;
+  --gray-border: rgba(0,0,0,0.12);
+  --text:        #1a1a1a;
+  --text-muted:  #6b7280;
+  --success:     #639922;
+  --success-bg:  #EAF3DE;
+  --warning:     #BA7517;
+  --warning-bg:  #FAEEDA;
+  --danger:      #A32D2D;
+  --danger-bg:   #FCEBEB;
+  --radius:      8px;
+  --shadow:      0 1px 4px rgba(0,0,0,0.08);
+  --transition:  0.2s ease;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--gray-bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ─── BOUTONS ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 8px 18px; border-radius: var(--radius);
+  font-size: 13px; font-weight: 500; cursor: pointer;
+  border: none; transition: all var(--transition);
+}
+.btn-primary  { background: var(--blue); color: #fff; }
+.btn-primary:hover  { background: var(--blue-dark); }
+.btn-outline  { background: #fff; color: var(--blue); border: 1px solid var(--blue); }
+.btn-outline:hover  { background: var(--blue-light); }
+.btn-danger   { background: var(--danger); color: #fff; }
+.btn-danger:hover   { background: #7a1f1f; }
+.btn-success  { background: var(--success); color: #fff; }
+.btn-success:hover  { background: #3b6d11; }
+.btn-sm { padding: 5px 12px; font-size: 12px; }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+/* ─── FORMULAIRES ─────────────────────────────────────────── */
+.form-group { margin-bottom: 14px; }
+.form-label { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 4px; }
+.form-control {
+  width: 100%; padding: 9px 12px;
+  border: 1px solid var(--gray-border); border-radius: var(--radius);
+  font-size: 13px; color: var(--text); background: var(--white);
+  transition: border-color var(--transition);
+}
+.form-control:focus { outline: none; border-color: var(--blue); }
+select.form-control { cursor: pointer; }
+textarea.form-control { resize: vertical; min-height: 100px; }
+
+/* ─── CARDS ───────────────────────────────────────────────── */
+.card {
+  background: var(--white); border: 1px solid var(--gray-border);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+
+/* ─── BADGES / PILLS ──────────────────────────────────────── */
+.badge {
+  display: inline-block; padding: 2px 9px; border-radius: 20px;
+  font-size: 11px; font-weight: 500;
+}
+.badge-blue    { background: var(--blue-light); color: var(--blue-dark); }
+.badge-success { background: var(--success-bg); color: var(--success); }
+.badge-warning { background: var(--warning-bg); color: var(--warning); }
+.badge-danger  { background: var(--danger-bg);  color: var(--danger);  }
+.badge-gray    { background: #f1f0f0; color: #555; }
+
+/* ─── ALERTES ─────────────────────────────────────────────── */
+.alert {
+  padding: 10px 14px; border-radius: var(--radius);
+  font-size: 13px; margin-bottom: 14px;
+}
+.alert-info    { background: var(--blue-light); color: var(--blue-dark); border: 1px solid rgba(26,111,212,.2); }
+.alert-danger  { background: var(--danger-bg);  color: var(--danger);   border: 1px solid rgba(163,45,45,.2); }
+.alert-success { background: var(--success-bg); color: var(--success);  border: 1px solid rgba(99,153,34,.2); }
+.alert-warning { background: var(--warning-bg); color: var(--warning);  border: 1px solid rgba(186,117,23,.2); }
+
+/* ─── TABLEAU ─────────────────────────────────────────────── */
+.table-wrapper { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th {
+  text-align: left; padding: 9px 14px;
+  font-size: 11px; font-weight: 600; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: .5px;
+  background: var(--gray-bg); border-bottom: 1px solid var(--gray-border);
+}
+td { padding: 10px 14px; font-size: 13px; border-bottom: 1px solid var(--gray-border); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: #fafafa; }
+
+/* ─── MODAL ───────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.4);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 999; animation: fadeIn .15s ease;
+}
+.modal {
+  background: var(--white); border-radius: 12px; padding: 28px;
+  width: 100%; max-width: 440px; max-height: 90vh;
+  overflow-y: auto; position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+.modal-title { font-size: 18px; font-weight: 600; margin-bottom: 20px; }
+.modal-close {
+  position: absolute; top: 16px; right: 18px;
+  background: none; border: none; font-size: 20px;
+  cursor: pointer; color: var(--text-muted);
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ─── SPINNER ─────────────────────────────────────────────── */
+.spinner {
+  display: inline-block; width: 24px; height: 24px;
+  border: 3px solid var(--blue-light); border-top-color: var(--blue);
+  border-radius: 50%; animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-center {
+  display: flex; justify-content: center; align-items: center;
+  min-height: 200px;
+}
+
+/* ─── LAYOUT UTILS ────────────────────────────────────────── */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+.flex      { display: flex; }
+.flex-1    { flex: 1; }
+.gap-8     { gap: 8px; }
+.gap-12    { gap: 12px; }
+.gap-16    { gap: 16px; }
+.mt-16     { margin-top: 16px; }
+.mb-16     { margin-bottom: 16px; }
+.text-center { text-align: center; }
+.text-muted  { color: var(--text-muted); }

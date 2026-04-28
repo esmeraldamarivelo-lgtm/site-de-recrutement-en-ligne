@@ -6,7 +6,7 @@ const app = express();
 
 // ─── MIDDLEWARES ─────────────────────────────────────────────
 app.use(cors({
-  origin: "https://site-de-recrutement-en-ligne.vercel.app", // URL du frontend Vite
+  origin: "*", // autoriser toutes les origines
   credentials: true,
 }));
 app.use(express.json());

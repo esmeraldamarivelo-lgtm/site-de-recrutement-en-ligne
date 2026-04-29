@@ -11,9 +11,9 @@ const pool = mysql2.createPool({
   connectionLimit:    10,
   queueLimit:         0,
   charset:            'utf8mb4',
-  ssl: {
-    rejectUnauthorized: true
-  }
+  // ssl: {
+  //   rejectUnauthorized: true
+  // }
 });
 
 // Test de connexion au démarrage

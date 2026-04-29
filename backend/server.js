@@ -6,7 +6,7 @@ const app = express();
 
 // ─── MIDDLEWARES ─────────────────────────────────────────────
 app.use(cors({
-  origin:      'http://localhost:5173', // URL du frontend Vite
+  origin: "*", // autoriser toutes les origines
   credentials: true,
 }));
 app.use(express.json());
